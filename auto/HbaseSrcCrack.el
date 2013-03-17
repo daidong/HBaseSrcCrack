@@ -21,7 +21,8 @@
     (LaTeX-add-labels
      "cmd:#2"
      "env:#1"
-     "clsopt:#1")
+     "clsopt:#1"
+     "mrj")
     (TeX-add-symbols
      '("doccmd" ["argument"] 1)
      '("doccmddef" ["argument"] 1)
@@ -64,6 +65,17 @@
      "tXeLaTeX"
      "tuftebs")
     (TeX-run-style-hooks
+     "listings"
+     "amsthm"
+     "acronym"
+     "tikz"
+     "subfig"
+     "float"
+     "inputenc"
+     "ansinew"
+     "fullpage"
+     "hyperref"
+     "verbatim"
      "makeidx"
      "units"
      "xspace"

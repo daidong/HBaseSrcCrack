@@ -1,0 +1,64 @@
+\documentclass[
+  article,
+  a4paper,
+  a4wide,
+  %draft,
+  smallheadings
+]{book}
+
+% Packages below
+\usepackage{graphicx}
+\usepackage{verbatim} % used to display code
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage[ansinew]{inputenc} % german umlauts
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{calc,through,backgrounds}
+\usepackage{fancyvrb}
+\usepackage{acronym}
+\usepackage{amsthm} % Uuhhh yet another package
+\VerbatimFootnotes % Required, otherwise verbatim does not work in footnotes!
+\usepackage{listings}
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.9}
+
+\begin{document}
+\lstset{
+language=Java,                             % Code langugage
+basicstyle=\ttfamily,                   % Code font, Examples: \footnotesize, 
+keywordstyle=\color{OliveGreen},        % Keywords font ('*' = uppercase)
+commentstyle=\color{gray},              % Comments font
+numbers=left,                           % Line nums position
+numberstyle=\tiny,                      % Line-numbers fonts
+stepnumber=1,                           % Step between two line-numbers
+numbersep=5pt,                          % How far are line-numbers from code
+backgroundcolor=\color{lightlightgray}, % Choose background color
+frame=none,                             % A frame around the code
+tabsize=2,                              % Default tab size
+captionpos=b,                           % Caption-position = bottom
+breaklines=true,                        % Automatic line breaking?
+breakatwhitespace=false,                % Automatic breaks only at whitespace?
+showspaces=false,                       % Dont make spaces visible
+showtabs=false,                         % Dont make tabls visible
+columns=flexible,                       % Column format
+morekeywords={__global__, __device__},  % CUDA specific keywords
+}
+\begin{lstlisting}
+  ClassLoader loader = new URLClassLoader(cp.toArray(new URL[0]));
+  Thread.currentThread().setContextClassLoader(loader);
+  Class<?> mainClass = Class.forName(mainClassName, true, loader);
+  Method main = mainClass.getMethod('main', new Class[] {
+    Array.newInstance(String.class, 0).getClass()
+  });
+  String[] newArgs = Arrays.asList(args).
+    subList(firstArg, args.length).toArray(new String[0]);
+  main.invoke(null, new Object[] { newArgs });
+\end{lstlisting}
+
+\end{document}

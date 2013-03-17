@@ -1,0 +1,27 @@
+(TeX-add-style-hook "test"
+ (lambda ()
+    (TeX-run-style-hooks
+     "listings"
+     "amsthm"
+     "acronym"
+     "fancyvrb"
+     "tikz"
+     "subfig"
+     "float"
+     "color"
+     "usenames"
+     "dvipsnames"
+     "inputenc"
+     "ansinew"
+     "fullpage"
+     "hyperref"
+     "verbatim"
+     "graphicx"
+     "latex2e"
+     "bk10"
+     "book"
+     "article"
+     "a4paper"
+     "a4wide"
+     "smallheadings")))
+
